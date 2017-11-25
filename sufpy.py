@@ -1,4 +1,5 @@
 #/Users/greglewis/anaconda/bin/python
+# -*- coding: utf-8 -*-
 
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
