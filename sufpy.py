@@ -1,4 +1,3 @@
-#/Users/greglewis/anaconda/bin/python
 # -*- coding: utf-8 -*-
 
 import spotipy
