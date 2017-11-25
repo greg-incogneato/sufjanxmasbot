@@ -56,5 +56,9 @@ for item in albums:
 # Pick a random track and Tweet it!!
 song_number = random.randint(0,99)
 song = sufjan[song_number]
-tweet = song[0]+ " " + song[1]
+if song[0] == "Christmas Unicorn":
+    tweet = song[0]+ "🎄🦄 " + song[1]
+else:
+    tweet = song[0]+ " " + song[1]
+
 twitter.update_status(status=tweet)
