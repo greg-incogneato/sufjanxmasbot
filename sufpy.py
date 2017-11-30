@@ -9,7 +9,7 @@ import time
 
 # delay execution of script by up to 1 hour, randomly
 start_delay = random.randint(0,3600)
-time.sleep(start_delay)
+#time.sleep(start_delay)
 
 # load yaml file with Twtter & Spotify keys
 config = yaml.load(open("config.yaml"))
@@ -35,10 +35,11 @@ SilverAndGold = '0AVvBrOZ4Hy3yCW8SguJLy'
 SongsForChristmas = '6ZCbYO3B5eslkY3zHdss4A'
 
 # Function iterates through an album and grabs song name & URI
-def get_sufjan(album,song_list,counter):
-    for i, t in enumerate(album['items']):
-        song_list[counter] = [t['name'], t['external_urls']['spotify']]
-        counter += 1    
+def get_sufjan(each_album,song_list,counter):
+    for album in each_album:
+	    for i, t in enumerate(album['items']):
+	        song_list[counter] = [t['name'], t['external_urls']['spotify']]
+	        counter += 1 
 
 # Connect to Spotify and gets song info for every track on both albums
 # Limitted to 50 tracks/request, so S&G is split across two vars
@@ -50,8 +51,7 @@ albums = [SFC,SandG1,SandG2]
 # Run the function on the albums to get the full list of tracks to use
 # key:value
 # Int:[Song Name, URI]
-for item in albums:
-    get_sufjan(item,sufjan,key_counter)
+get_sufjan(albums,sufjan,key_counter)
 
 # Pick a random track and Tweet it!!
 song_number = random.randint(0,99)
