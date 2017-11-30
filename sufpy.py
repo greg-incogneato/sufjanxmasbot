@@ -9,7 +9,7 @@ import time
 
 # delay execution of script by up to 1 hour, randomly
 start_delay = random.randint(0,3600)
-#time.sleep(start_delay)
+time.sleep(start_delay)
 
 # load yaml file with Twtter & Spotify keys
 config = yaml.load(open("config.yaml"))
