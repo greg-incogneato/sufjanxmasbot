@@ -6,6 +6,7 @@ from twython import Twython
 import random, yaml
 import os
 import time
+import emoji
 
 # delay execution of script by up to 1 hour, randomly
 start_delay = random.randint(0,3600)
@@ -57,8 +58,9 @@ get_sufjan(albums,sufjan,key_counter)
 song_number = random.randint(0,99)
 song = sufjan[song_number]
 if song[0] == "Christmas Unicorn":
-    tweet = song[0]+ "🎄🦄 " + song[1]
+    xmas_unicorn = emoji.emojize(' :christmas_tree::unicorn_face: ', use_aliases=True)
+    tweet = song[0]+ xmas_unicorn + song[1]
 else:
-    tweet = song[0]+ " " + song[1]
+    tweet = song[0] + " " + song[1]
 
 twitter.update_status(status=tweet)
