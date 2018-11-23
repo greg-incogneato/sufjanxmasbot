@@ -1,3 +1,4 @@
+#/Users/greglewis/anaconda/bin/python
 # -*- coding: utf-8 -*-
 
 import spotipy
@@ -34,6 +35,7 @@ sufjan = {}
 key_counter = 0
 SilverAndGold = '0AVvBrOZ4Hy3yCW8SguJLy'
 SongsForChristmas = '6ZCbYO3B5eslkY3zHdss4A'
+LonelyManOfWinter = '6ih3mS49nmttFRS8A63X7L'
 
 # Function iterates through an album and grabs song name & URI
 def get_sufjan(each_album,song_list,counter):
@@ -47,7 +49,8 @@ def get_sufjan(each_album,song_list,counter):
 SFC = sp.album_tracks(SongsForChristmas, limit=50, offset=0)
 SandG1 = sp.album_tracks(SilverAndGold, limit=50, offset=0)
 SandG2 = sp.album_tracks(SilverAndGold, limit=50, offset=50)
-albums = [SFC,SandG1,SandG2]
+LMOW = sp.album_tracks(LonelyManOfWinter, limit=50, offset=0)
+albums = [SFC,SandG1,SandG2,LMOW]
 
 # Run the function on the albums to get the full list of tracks to use
 # key:value
@@ -55,7 +58,7 @@ albums = [SFC,SandG1,SandG2]
 get_sufjan(albums,sufjan,key_counter)
 
 # Pick a random track and Tweet it!!
-song_number = random.randint(0,99)
+song_number = random.randint(0,102)
 song = sufjan[song_number]
 if song[0] == "Christmas Unicorn":
     xmas_unicorn = emoji.emojize(' :christmas_tree::unicorn_face: ', use_aliases=True)
